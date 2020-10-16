@@ -11,7 +11,10 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
  
+
 const auth = firebase.auth();
+
+checkAuthState()
 
 function gSignIn(){
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -20,9 +23,10 @@ function gSignIn(){
 
 function signOut(){
   auth.signOut().then(function(){
-  // Sign the user out of the system.
+   loginViewToggle(true)
   }).catch(function(error){
     //show the error
+    alert(error);
   })
 }
 
@@ -35,6 +39,7 @@ function singInWithProvider(provider){
   auth.signInWithPopup(provider).then(function(result){
     var token = result.credential.accessToken;
     var user = result.user;
+
   }).catch(function(error){
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -44,3 +49,25 @@ function singInWithProvider(provider){
     alert(errorMessage)
   });
 }
+
+function checkAuthState(){
+  firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+      loginViewToggle(false)
+    }else{
+      loginViewToggle(true)
+      console.log("logged out")
+    }
+  })
+}
+
+function loginViewToggle(value){
+  if(value){
+    document.getElementById("loginSetup").style.visibility = "visible"
+    document.getElementById("dashboardSetup").style.visibility = "hidden"
+  }else{
+    document.getElementById("loginSetup").style.visibility = "hidden"
+    document.getElementById("dashboardSetup").style.visibility = "visible"
+  }
+}
+

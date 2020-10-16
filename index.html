@@ -13,11 +13,16 @@
 <body>
     <!-- Firebase at the start-->
     
-    <h1>Welcome to The Login PWA </h1>
-    <div id="buttonContainer">
-    <div id="header"> </div>
+    
+    <div id="loginSetup">
+      <h1>System</h1>
       <button onclick="gSignIn()" id="buttonGSignIn">G Sign In</button>
       <button onclick="fSignIn()" id="buttonFSignIn">F Sign In</button>
+    </div>
+
+    <div id="dashboardSetup">
+      <h1>Welcome to the Matrix</h1>
+      <button onClick="signOut()" id="buttonSignOut">Sign Out</button>
     </div>
       
     <script src="app.js"></script>
