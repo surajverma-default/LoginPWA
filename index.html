@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Timeline</title>
-    <link rel="stylesheet" href="main.css">
-    
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login PWA</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="firebase.js"></script>
+  </head>
+  <body>
     <!-- Firebase at the start-->
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
 
-<!-- <script>
-  var firebaseConfig = {
-    apiKey: "AIzaSyBwVV0Dx6mCl8OJHNnU2SOzjVqR8G1fAOY",
-    authDomain: "loginpwa-70c31.firebaseapp.com",
-    databaseURL: "https://loginpwa-70c31.firebaseio.com",
-    projectId: "loginpwa-70c31",
-    storageBucket: "loginpwa-70c31.appspot.com",
-    messagingSenderId: "350726861158",
-    appId: "1:350726861158:web:c5472fdbf310e6a1ab18a7"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script> -->
+    <div id="loginSetup">
+      <h1>Login Page</h1>
+      <button onclick="gSignIn()" id="buttonGSignIn">Google Sign In</button>
+      <button onclick="fSignIn()" id="buttonFSignIn">Facebook Sign In</button>
+    </div>
+
+    <div id="dashboardSetup">
+      <h1>Welcome to the Matrix</h1>
+      <button onClick="signOut()" id="buttonSignOut">Sign Out</button>
+    </div>
+
     <script src="app.js"></script>
     <noscript>Please enable Javascript to view the full site</noscript>
-</body>
+  </body>
 </html>
